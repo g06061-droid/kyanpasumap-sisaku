@@ -1,0 +1,100 @@
+HTML
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>校舎の特定部分をクリックして画像表示</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+        }
+        model-viewer {
+            width: 80%;
+            height: 70vh;
+            background-color: #ffffff;
+        }
+
+        /* 💡3D上のピン（ボタン）の見た目をCSSで整える */
+        .hotspot-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: none;
+            background-color: #ff4757;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* 💡ポップアップ表示（画像を表示する画面）のスタイル */
+        .image-popup {
+            display: none; /* 最初は隠しておく */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            text-align: center;
+            z-index: 10;
+        }
+        .image-popup img {
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .close-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <model-viewer src="学校めちゃくちゃ.glb" camera-controls>
+        
+        <button class="hotspot-btn" 
+                slot="hotspot-entrance" 
+                data-position="0m 1.5m 0m" 
+                data-normal="0m 0m 1m" 
+                onclick="showImage()">
+        </button>
+
+    </model-viewer>
+
+    <div id="popup" class="image-popup">
+        <img src="school-entrance.jpg" alt="学校の玄関の写真">
+        <p>ここは学校の正面玄関です！</p>
+        <button class="close-btn" onclick="hideImage()">閉じる</button>
+    </div>
+
+    <script>
+        const popup = document.getElementById('popup');
+
+        // 画像を表示する関数（ピンをクリックした時に実行）
+        function showImage() {
+            popup.style.display = 'block';
+        }
+
+        // 画像を隠す関数（閉じるボタンをクリックした時に実行）
+        function hideImage() {
+            popup.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
