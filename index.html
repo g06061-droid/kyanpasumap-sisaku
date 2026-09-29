@@ -474,8 +474,8 @@
                 </button>
 
 
-                <button class="Hotspot" slot="hotspot-bldg-6" data-position="0m 2.5m -3m" data-normal="0m 1m 0m" onclick="openFloorSelector('5号館')">
-                     5号館
+                <button class="Hotspot" slot="hotspot-bldg-6" data-position="0m 2.5m -3m" data-normal="0m 1m 0m" onclick="openFloorSelector('高専会館')">
+                     高専会館
                 </button>
 
 
@@ -489,13 +489,13 @@
                 </button>
 
 
-                <button class="Hotspot" slot="hotspot-bldg-9" data-position="10m 2.5m -5m" data-normal="0m 1m 0m" onclick="openFloorSelector('武道場')">
-                     武道場
+                <button class="Hotspot" slot="hotspot-bldg-9" data-position="10m 2.5m -5m" data-normal="0m 1m 0m" onclick="openFloorSelector('学生会館')">
+                     学生会館
                 </button>
 
 
-                <button class="Hotspot" slot="hotspot-bldg-10" data-position="-10m 2.5m -5m" data-normal="0m 1m 0m" onclick="openFloorSelector('厚生棟')">
-                     学生会館
+                <button class="Hotspot" slot="hotspot-bldg-10" data-position="-10m 2.5m -5m" data-normal="0m 1m 0m" onclick="openFloorSelector('武道場')">
+                     武道場
                 </button>
 
 
@@ -531,9 +531,8 @@
                         <span> 4号館</span>
                         <span class="badge">1〜2階</span>
                     </button>
-                    <button class="building-btn" onclick="openFloorSelector('5号館')">
-                        <span> 学生会館</span>
-                        <span class="badge">1〜3階</span>
+                    <button class="building-btn" onclick="openFloorSelector('高専会館')">
+                        <span> 高専会館</span>
                     </button>
                     <button class="building-btn" onclick="openFloorSelector('図書館')">
                         <span> 図書館</span>
@@ -542,11 +541,12 @@
                     <button class="building-btn" onclick="openFloorSelector('体育館')">
                         <span> 体育館</span>
                     </button>
+                    <button class="building-btn" onclick="openFloorSelector('学生会館')">
+                        <span> 学生会館</span>
+                        <span class="badge">1〜3階</span>
+                    </button>
                     <button class="building-btn" onclick="openFloorSelector('武道場')">
                         <span> 武道場</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('厚生棟')">
-                        <span> 高専会館</span>
                     </button>
                 </div>
             </div>
@@ -610,16 +610,16 @@
 
         // 全10棟の最大階数定義
         const buildingMaxFloors = {
-            '本館': 3,
-            '1号館': 3,
+            '本館': 4,
+            '1号館': 2,
             '2号館': 3,
             '3号館': 3,
-            '4号館': 3,
-            '5号館': 3,
+            '4号館': 2,
+            '高専会館': 1,
             '図書館': 2,
-            '体育館': 2,
-            '武道場': 2,
-            '厚生棟': 2
+            '体育館': 1,
+            '学生会館':3
+            '武道場': 1,
         };
 
 
