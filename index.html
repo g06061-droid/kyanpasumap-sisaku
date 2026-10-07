@@ -2,19 +2,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D校内マップ & フロア案内 (10棟対応版)</title>
    
     <!-- Google official 3D viewer library -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
-   
+
     <style>
         * {
             box-sizing: border-box;
         }
 
-
+        
         body {
             margin: 0;
             padding: 12px;
@@ -34,6 +35,7 @@
             margin-bottom: 15px;
             text-align: center;
         }
+
 
 
         h1 {
@@ -70,6 +72,7 @@
                 align-items: stretch;
             }
         }
+
 
 
         /* 3D表示エリア */
@@ -109,7 +112,7 @@
             transition: transform 0.2s, background-color 0.2s;
             white-space: nowrap;
         }
-
+        
 
         .Hotspot:hover, .Hotspot:active {
             transform: scale(1.12);
@@ -308,7 +311,7 @@
             cursor: pointer;
         }
 
-
+        
         .close-btn:hover {
             color: #333;
         }
@@ -354,7 +357,7 @@
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-
+        
 
         .map-header {
             background: #006064;
@@ -415,7 +418,9 @@
             text-align: center;
         }
     </style>
+    
 </head>
+
 <body>
 
     <!-- ヘッダー -->
@@ -423,12 +428,15 @@
         <h1> 近大高専キャンパスマップ</h1>
     </header>
 
+
     <!-- メインレイアウト -->
     <div class="main-layout">
        
+
         <!-- 3Dビューワーエリア -->
         <div class="viewer-container">
            
+
             <!-- 案内バナー & テスト用ファイル選択ボタン -->
             <div id="notice-banner" class="notice-banner hidden">
                 <span>⚠️ school.glb が見つからないか、テスト環境です</span>
@@ -437,7 +445,6 @@
                     <input type="file" id="file-input" accept=".glb,.gltf">
                 </label>
             </div>
-
 
             <!-- 3Dモデル表示タグ (10棟分のピン配置) -->
             <model-viewer
@@ -452,117 +459,37 @@
                 <button class="Hotspot" slot="hotspot-bldg-1" data-position="-76m 16m -30m" data-normal="0m 1m 0m" onclick="openFloorSelector('本館')">
                      本館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-2" data-position="-18m 16m -30m" data-normal="0m 1m 0m" onclick="openFloorSelector('1号館')">
                      1号館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-3" data-position="9m 16m 0m" data-normal="0m 1m 0m" onclick="openFloorSelector('2号館')">
                      2号館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-4" data-position="18m 16m -18m" data-normal="0m 1m 0m" onclick="openFloorSelector('3号館')">
                      3号館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-5" data-position="25m 16m -35m" data-normal="0m 1m 0m" onclick="openFloorSelector('4号館')">
                      4号館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-6" data-position="-40m 16m 30m" data-normal="0m 1m 0m" onclick="openFloorSelector('高専会館')">
                      高専会館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-7" data-position="-41m 16m -30m" data-normal="0m 1m 0m" onclick="openFloorSelector('図書館')">
                      図書館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-8" data-position="58m 16m -8m" data-normal="0m 1m 0m" onclick="openFloorSelector('体育館')">
                      体育館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-9" data-position="58m 16m -34m" data-normal="0m 1m 0m" onclick="openFloorSelector('学生会館')">
                      学生会館
                 </button>
-
                 <button class="Hotspot" slot="hotspot-bldg-10" data-position="80m 16m -7m" data-normal="0m 1m 0m" onclick="openFloorSelector('武道場')">
                      武道場
                 </button>
-
-
+                
             </model-viewer>
+            
         </div>
-
-
-      
-<!-- サイドバー：全10棟の校舎一覧リスト -->
-        <div class="sidebar">
-            <div>
-                <div class="sidebar-title"> 校舎一覧</div>
-                <div class="sidebar-desc">校舎を選択すると階ごとのフロアマップが開きます。</div>
-
-
-                <div class="building-list">
-                    <button class="building-btn" onclick="openFloorSelector('本館')">
-                        <span> 本館</span>
-                        <span class="badge">1〜4階</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('1号館')">
-                        <span> 1号館</span>
-                        <span class="badge">1〜3階</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('2号館')">
-                        <span> 2号館</span>
-                        <span class="badge">1〜3階</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('3号館')">
-                        <span> 3号館</span>
-                        <span class="badge">1〜3階</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('4号館')">
-                        <span> 4号館</span>
-                        <span class="badge">1〜2階</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('高専会館')">
-                        <span> 高専会館</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('図書館')">
-                        <span> 図書館</span>
-                        <span class="badge">1〜2階</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('体育館')">
-                        <span> 体育館</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('学生会館')">
-                        <span> 学生会館</span>
-                        <span class="badge">1〜3階</span>
-                    </button>
-                    <button class="building-btn" onclick="openFloorSelector('武道場')">
-                        <span> 武道場</span>
-                    </button>
-                </div>
-            </div>
-
-
-            <div style="margin-top: 12px; font-size: 11px; color: #00838f; text-align: center; border-top: 1px solid #e0f7fa; padding-top: 8px;">
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <!-- 階数選択モーダル -->
-    <div id="floor-modal" class="modal-overlay">
-        <div class="modal-card">
-            <button class="close-btn" onclick="closeModal('floor-modal')">&times;</button>
-            <h3 id="modal-building-name" style="margin: 0 0 4px 0; color: #006064;">校舎名</h3>
-            <p style="font-size: 12px; color: #00838f; margin: 0 0 16px 0;">確認したい階数を選んでください</p>
-            <div id="floor-buttons-container" class="floor-btn-grid">
-                <!-- JavaScriptで動的生成 -->
-            </div>
-        </div>
-    </div>
 
 
         <!-- サイドバー：全10棟の校舎一覧リスト -->
@@ -571,6 +498,7 @@
                 <div class="sidebar-title"> 校舎一覧</div>
                 <div class="sidebar-desc">校舎を選択すると階ごとのフロアマップが開きます。</div>
 
+                
                 <div class="building-list">
                     <button class="building-btn" onclick="openFloorSelector('本館')">
                         <span> 本館</span>
@@ -594,7 +522,6 @@
                     </button>
                     <button class="building-btn" onclick="openFloorSelector('高専会館')">
                         <span> 高専会館</span>
-                        <span class="badge">1〜2階</span>
                     </button>
                     <button class="building-btn" onclick="openFloorSelector('図書館')">
                         <span> 図書館</span>
@@ -602,7 +529,6 @@
                     </button>
                     <button class="building-btn" onclick="openFloorSelector('体育館')">
                         <span> 体育館</span>
-                        <span class="badge">1階</span>
                     </button>
                     <button class="building-btn" onclick="openFloorSelector('学生会館')">
                         <span> 学生会館</span>
@@ -610,17 +536,20 @@
                     </button>
                     <button class="building-btn" onclick="openFloorSelector('武道場')">
                         <span> 武道場</span>
-                        <span class="badge">1階</span>
                     </button>
+                    
                 </div>
+
             </div>
 
+
             <div style="margin-top: 12px; font-size: 11px; color: #00838f; text-align: center; border-top: 1px solid #e0f7fa; padding-top: 8px;">
-                💡 images フォルダ内に作成した見取り図画像を配置して表示します
             </div>
         </div>
 
+
     </div>
+
 
     <!-- 階数選択モーダル -->
     <div id="floor-modal" class="modal-overlay">
@@ -630,87 +559,258 @@
             <p style="font-size: 12px; color: #00838f; margin: 0 0 16px 0;">確認したい階数を選んでください</p>
             <div id="floor-buttons-container" class="floor-btn-grid">
                 <!-- JavaScriptで動的生成 -->
+
             </div>
         </div>
     </div>
 
-    <!-- 見取り図表示モーダル -->
+    <!-- フロアマップ（見取り図）表示モーダル -->
     <div id="map-modal" class="modal-overlay">
         <div class="map-modal-card">
             <div class="map-header">
-                <span id="map-modal-title">校舎名 - 見取り図</span>
-                <button class="close-btn" style="color: white; position: static;" onclick="closeModal('map-modal')">&times;</button>
+                <span id="map-modal-title">本館 - 1階 見取り図</span>
+                <button class="close-btn" style="color: white;" onclick="closeModal('map-modal')">&times;</button>
             </div>
-            
+
+            <!-- 階数切り替えタブ -->
             <div id="map-tabs-container" class="map-tabs">
-                <!-- 階数切替タブをJavaScriptで追加 -->
+                <!-- JavaScriptで動的生成 -->
             </div>
 
-            <div class="map-body" id="map-body-content">
-                <!-- 画像またはSVGが挿入される -->
+
+            <!-- 画像/SVG描画エリア -->
+            <div class="map-body" id="map-graphic-container">
+
+                <!-- SVG見取り図が表示されます -->
+
             </div>
 
-            <div class="map-footer">
-                <div style="font-weight: bold; margin-bottom: 4px;">📌 主な施設・教室</div>
-                <div id="room-list-container" class="room-tags">
-                    <!-- 部屋一覧タグ -->
-                </div>
-            </div>
         </div>
+
     </div>
+
 
     <!-- フッター -->
     <footer>
-        3Dキャンパスマップ & 見取り図ナビゲーションシステム
+        <p>操作方法：[回転] ドラッグ / [拡大] スクロール・ピンチ / [移動] 右クリックドラッグ</p>
     </footer>
 
+
+    <!-- JavaScript -->
     <script>
-        // 各校舎・階数ごとの画像ファイルパスの設定
-        const floorPlanImages = {
-            '本館': {
-                1: 'images/本館_1F.png',
-                2: 'images/本館_2F.png',
-                3: 'images/本館_3F.png',
-                4: 'images/本館_4F.png'
-            },
-            '1号館': {
-                1: 'images/1号館_1F.png',
-                2: 'images/1号館_2F.png'
-            },
-            '2号館': {
-                1: 'images/2号館_1F.png',
-                2: 'images/2号館_2F.png',
-                3: 'images/2号館_3F.png'
-            },
-            '3号館': {
-                1: 'images/3号館_1F.png',
-                2: 'images/3号館_2F.png',
-                3: 'images/3号館_3F.png'
-            },
-            '4号館': {
-                1: 'images/4号館_1F.png',
-                2: 'images/4号館_2F.png'
-            },
-            '高専会館': {
-                1: 'images/高専会館_1F.png',
-                2: 'images/高専会館_2F.png'
-            },
-            '図書館': {
-                1: 'images/図書館_1F.png',
-                2: 'images/図書館_2F.png'
-            },
-            '体育館': {
-                1: 'images/体育館_1F.png'
-            },
-            '学生会館': {
-                1: 'images/学生会館_1F.png',
-                2: 'images/学生会館_2F.png',
-                3: 'images/学生会館_3F.png'
-            },
-            '武道場': {
-                1: 'images/武道場_1F.png'
-            }
+        // グローバル変数
+        let currentBuilding = '本館';
+        let currentFloor = 1;
+
+
+        // 全10棟の最大階数定義
+        const buildingMaxFloors = {
+            '本館': 4,
+            '1号館': 2,
+            '2号館': 3,
+            '3号館': 3,
+            '4号館': 2,
+            '高専会館': 1,
+            '図書館': 2,
+            '体育館': 1,
+            '学生会館': 3,
+            '武道場': 1
         };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewer = document.getElementById('school-viewer');
+            const banner = document.getElementById('notice-banner');
+            const fileInput = document.getElementById('file-input');
+            const targetFileName = '学校.glb';
+
+            try {
+                const currentHref = window.location.href;
+                if (currentHref.startsWith('http://') || currentHref.startsWith('https://')) {
+                    const resolvedUrl = new URL(targetFileName, currentHref).href;
+                    viewer.src = resolvedUrl;
+                } else {
+                    banner.classList.remove('hidden');
+                }
+            } catch (err) {
+                console.warn('URLの解析に失敗しました:', err);
+                banner.classList.remove('hidden');
+            }
+
+
+            // モデル未検出・エラー時の処理
+            viewer.addEventListener('error', (event) => {
+                console.log('3Dモデルの読み込みエラー:', event);
+                banner.classList.remove('hidden');
+            });
+
+
+            // 手動で.glbファイルを選択した時の処理
+            //fileInput.addEventListener('change', (e) => {
+              //  const file = e.target.files[0];
+                //if (file) {
+                  //  const blobUrl = URL.createObjectURL(file);
+                    //viewer.src = blobUrl;
+                    //banner.classList.add('hidden');
+                //}
+            //});
+        });
+
+
+        // --- モーダル・フロアマップ制御 ---
+
+
+        // 階数選択ダイアログを開く
+        function openFloorSelector(buildingName) {
+            currentBuilding = buildingName;
+            document.getElementById('modal-building-name').innerText = `🏢 ${buildingName}`;
+
+            const container = document.getElementById('floor-buttons-container');
+            container.innerHTML = '';
+
+
+            const maxFloor = buildingMaxFloors[buildingName] || 3;
+
+
+            for (let f = 1; f <= maxFloor; f++) {
+                const btn = document.createElement('button');
+                btn.className = 'floor-select-btn';
+                btn.innerText = `${f} 階 の見取り図を開く`;
+                btn.onclick = () => {
+                    closeModal('floor-modal');
+                    showFloorMap(buildingName, f);
+                };
+                container.appendChild(btn);
+            }
+
+
+            document.getElementById('floor-modal').classList.add('active');
+        }
+
+
+        // 見取り図モーダルを表示
+        function showFloorMap(buildingName, floorNum) {
+            currentBuilding = buildingName;
+            currentFloor = floorNum;
+
+
+            document.getElementById('map-modal-title').innerText = `${buildingName} - ${floorNum}階 見取り図`;
+
+
+            // タブの更新
+            const tabsContainer = document.getElementById('map-tabs-container');
+            tabsContainer.innerHTML = '';
+            const maxFloor = buildingMaxFloors[buildingName] || 3;
+
+
+
+            for (let f = 1; f <= maxFloor; f++) {
+                const tab = document.createElement('button');
+                tab.className = `tab-btn ${f === floorNum ? 'active' : ''}`;
+                tab.innerText = `${f}階`;
+                tab.onclick = () => showFloorMap(buildingName, f);
+                tabsContainer.appendChild(tab);
+
+            }
+
+
+            // SVG見取り図の生成・描画
+            const graphicContainer = document.getElementById('map-graphic-container');
+            graphicContainer.innerHTML = generateFloorPlanSVG(buildingName, floorNum);
+
+
+            document.getElementById('map-modal').classList.add('active');
+        }
+
+        // モーダルを閉じる
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+
+        // 動的SVGフロアマップ生成（10棟対応データ）
+        function generateFloorPlanSVG(building, floor) {
+            const roomData = {
+                '本館': {
+                    1: ['事務室 / 窓口', '校長室', '保健室', '正面玄関ロビー'],
+                    2: ['職員室', '進路指導室', '会議室 A', '会議室 B'],
+                    3: ['本部会議室', 'サーバー室', '資料保管室', '応接室']
+                },
+                '1号館': {
+                    1: ['1-1 教室', '1-2 教室', '1-3 教室', '1年学年室'],
+                    2: ['2-1 教室', '2-2 教室', '2-3 教室', '2年学年室'],
+                    3: ['3-1 教室', '3-2 教室', '3-3 教室', '3年学年室']
+                },
+                '2号館': {
+                    1: ['機械工学実験室', '材料試験室', '機械実習室', '準備室'],
+                    2: ['電気電子実験室', '計測制御室', '回路演習室', '教員室'],
+                    3: ['電子情報実験室', '通信ネットワーク室', '卒研室 A', '卒研室 B']
+                },
+                '3号館': {
+                    1: ['都市環境実験室', '構造実験室', '水理実験室', '測量器具庫'],
+                    2: ['CAD演習室 A', 'CAD演習室 B', '設計製図室 1', '設計製図室 2'],
+                    3: ['環境分析室', '地盤工学実験室', 'ゼミナール室 A', 'ゼミナール室 B']
+                },
+                '4号館': {
+                    1: ['一般化学実験室', '有機化学実験室', '分析化学室', '薬品庫'],
+                    2: ['物理実験室 1', '物理実験室 2', 'バイオ実験室', '暗室'],
+                    3: ['先端材料研究室', '精密分析機器室', '共同研究室 1', '共同研究室 2']
+                },
+                '5号館': {
+                    1: ['PC教室 1', 'PC教室 2', 'ヘルプデスク', '機器保管室'],
+                    2: ['プログラミング演習室', 'AI研究室', 'マルチメディア室', '自習ラウンジ'],
+                    3: ['ネットワーク演習室', 'サイバーセキュリティ室', '創作工房', 'プロジェクト室']
+                },
+                '図書館': {
+                    1: ['総合受付・カウンター', '開架閲覧スペース', '新着雑誌コーナー', 'グループ学習室'],
+                    2: ['学習検索コーナー', 'サイレント学習室', '貴重書庫', '視聴覚ブース']
+                },
+                '体育館': {
+                    1: ['メインアリーナ', '器具庫 A', '男子更魚室', '女子更衣室'],
+                    2: ['観覧ギャラリー', '体育教官室', '器具庫 B', 'ミーティングルーム']
+                },
+                '武道場': {
+                    1: ['柔道場', '剣道場', '更衣室', '顧問控え室'],
+                    2: ['トレーニングルーム', '卓球場', '物置', 'ストレッチエリア']
+                },
+                '厚生棟': {
+                    1: ['学生食堂 (1F)', '購買 / 売店', 'カフェテラス', '学生ラウンジ'],
+                    2: ['学生会役員室', '部室エリア A', '部室エリア B', '多目的ホール']
+                }
+            };
+
+
+            const rooms = (roomData[building] && roomData[building][floor])
+                ? roomData[building][floor]
+                : ['部屋 A', '部屋 B', '部屋 C', '部屋 D'];
+
+
+            return `
+            <svg width="600" height="360" viewBox="0 0 600 360" style="max-width:100%; height:auto;">
+                <!-- 外枠・背景 -->
+                <rect x="10" y="10" width="580" height="340" fill="#ffffff" stroke="#006064" stroke-width="3" rx="8"/>
+
+                <!-- 廊下 -->
+                <rect x="30" y="150" width="540" height="60" fill="#e0f7fa" stroke="#b2ebf2"/>
+                <text x="300" y="185" font-family="sans-serif" font-size="12" font-weight="bold" fill="#00838f" text-anchor="middle">中央廊下 (Corridor)</text>
+
+                <!-- 上部部屋 -->
+                <rect x="30" y="30" width="250" height="100" fill="#f0fdfa" stroke="#00acc1" stroke-width="2" rx="6"/>
+                <text x="155" y="85" font-family="sans-serif" font-size="14" font-weight="bold" fill="#006064" text-anchor="middle">${rooms[0]}</text>
+
+                <rect x="300" y="30" width="270" height="100" fill="#f0fdfa" stroke="#00acc1" stroke-width="2" rx="6"/>
+                <text x="435" y="85" font-family="sans-serif" font-size="14" font-weight="bold" fill="#006064" text-anchor="middle">${rooms[1]}</text>
+
+                <!-- 下部部屋 -->
+                <rect x="30" y="230" width="250" height="100" fill="#f0fdfa" stroke="#00acc1" stroke-width="2" rx="6"/>
+                <text x="155" y="285" font-family="sans-serif" font-size="14" font-weight="bold" fill="#006064" text-anchor="middle">${rooms[2]}</text>
+
+                <rect x="300" y="230" width="270" height="100" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" rx="6"/>
+                <text x="435" y="285" font-family="sans-serif" font-size="14" font-weight="bold" fill="#0369a1" text-anchor="middle">${rooms[3]}</text>
+            </svg>
+            `;
+        }
     </script>
 </body>
-</html>
+
+</html> 
+
