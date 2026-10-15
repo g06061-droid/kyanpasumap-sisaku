@@ -564,8 +564,8 @@
                         <span> 武道場</span>
                     </button>
                     <!-- トイレピン専用のON/OFFボタン -->
-                    <button id="toggle-toilet-btn" class="toggle-btn" onclick="toggleToiletHotspots()">
-                         🚻 トイレピン：ON
+                    <button id="toggle-toilet-btn" class="toggle-btn off" onclick="toggleToiletHotspots()">
+                         🚻 トイレピン：OFF
                     </button>
                     <div class="building-list">
                 </div>
@@ -753,11 +753,10 @@
         }
 
         function toggleToiletHotspots() {
-             const viewer = document.getElementById('school-viewer');
-             const btn = document.getElementById('toggle-toilet-btn');
+        const viewer = document.getElementById('school-viewer');
+        const btn = document.getElementById('toggle-toilet-btn');
     
-    // トイレ非表示用クラスの付け外し
-        viewer.classList.toggle('hide-toilet-hotspots');
+             viewer.classList.toggle('hide-toilet-hotspots');
     
         if (viewer.classList.contains('hide-toilet-hotspots')) {
              btn.textContent = '🚻 トイレピン：ON';
