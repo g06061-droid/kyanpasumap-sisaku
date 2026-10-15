@@ -507,13 +507,13 @@
                      武道場
                 </button>
                 <button class="Hotspot toilet-pin" slot="hotspot-toilet-1" data-position="-70m 16m -25m" data-normal="0m 1m 0m" onclick="alert('本館 トイレ')">
-                    🚻 本館トイレ
+                    トイレ🚻
                 </button>
                 <button class="Hotspot toilet-pin" slot="hotspot-toilet-2" data-position="-35m 16m 25m" data-normal="0m 1m 0m" onclick="alert('高専会館 トイレ')">
-                    🚻 会館トイレ
+                    トイレ🚻
                 </button>
                 <button class="Hotspot toilet-pin" slot="hotspot-toilet-3" data-position="50m 16m -5m" data-normal="0m 1m 0m" onclick="alert('体育館 トイレ')">
-                    🚻 体育館トイレ
+                    トイレ🚻
                 </button>
             </model-viewer>
             
@@ -760,11 +760,11 @@
         viewer.classList.toggle('hide-toilet-hotspots');
     
         if (viewer.classList.contains('hide-toilet-hotspots')) {
-             btn.textContent = '🚻 トイレピン：OFF';
-             btn.classList.add('off');
-        } else {
              btn.textContent = '🚻 トイレピン：ON';
              btn.classList.remove('off');
+        } else {
+             btn.textContent = '🚻 トイレピン：OFF';
+             btn.classList.add('off');
             }
         } 
 
