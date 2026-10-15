@@ -414,6 +414,41 @@
             color: #006064;
             text-align: center;
         }
+
+        model-viewer.hide-toilet-hotspots .Hotspot.toilet-pin {
+            display: none !important;
+       }
+
+       /* トイレのピン */
+        .Hotspot.toilet-pin {
+            background: #26a69a;
+            border-color: #ffffff;
+       }
+
+       .Hotspot.toilet-pin:hover, .Hotspot.toilet-pin:active {
+            background: #00796b;
+       }
+
+       /* トイレピン切替ボタン */
+       .toggle-btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            background: #26a69a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+      }
+        .toggle-btn:hover {
+            background: #00796b;
+      }
+        .toggle-btn.off {
+            background: #78909c;
+      }
     </style>
 </head>
 
@@ -471,7 +506,15 @@
                 <button class="Hotspot" slot="hotspot-bldg-10" data-position="80m 16m -7m" data-normal="0m 1m 0m" onclick="openFloorSelector('武道場')">
                      武道場
                 </button>
-                
+                <button class="Hotspot toilet-pin" slot="hotspot-toilet-1" data-position="-70m 16m -25m" data-normal="0m 1m 0m" onclick="alert('本館 トイレ')">
+                    🚻 本館トイレ
+                </button>
+                <button class="Hotspot toilet-pin" slot="hotspot-toilet-2" data-position="-35m 16m 25m" data-normal="0m 1m 0m" onclick="alert('高専会館 トイレ')">
+                    🚻 会館トイレ
+                </button>
+                <button class="Hotspot toilet-pin" slot="hotspot-toilet-3" data-position="50m 16m -5m" data-normal="0m 1m 0m" onclick="alert('体育館 トイレ')">
+                    🚻 体育館トイレ
+                </button>
             </model-viewer>
             
         </div>
@@ -520,6 +563,11 @@
                     <button class="building-btn" onclick="openFloorSelector('武道場')">
                         <span> 武道場</span>
                     </button>
+                    <!-- トイレピン専用のON/OFFボタン -->
+                    <button id="toggle-toilet-btn" class="toggle-btn" onclick="toggleToiletHotspots()">
+                         🚻 トイレピン：ON
+                    </button>
+                    <div class="building-list">
                 </div>
             </div>
 
@@ -703,6 +751,22 @@
              const viewer = document.getElementById('school-viewer');
              viewer.src = '学校.glb';
         }
+
+        function toggleToiletHotspots() {
+             const viewer = document.getElementById('school-viewer');
+             const btn = document.getElementById('toggle-toilet-btn');
+    
+    // トイレ非表示用クラスの付け外し
+        viewer.classList.toggle('hide-toilet-hotspots');
+    
+        if (viewer.classList.contains('hide-toilet-hotspots')) {
+             btn.textContent = '🚻 トイレピン：OFF';
+             btn.classList.add('off');
+        } else {
+             btn.textContent = '🚻 トイレピン：ON';
+             btn.classList.remove('off');
+            }
+        } 
 
         // 階数選択モーダルを開く
         function openFloorSelector(buildingName) {
