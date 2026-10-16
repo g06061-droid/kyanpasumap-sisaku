@@ -754,18 +754,18 @@
         }
 
         function toggleToireHotspots() {
-        const viewer = document.getElementById('school-viewer');
-        const btn = document.getElementById('toggle-toire-btn');
-    
+             const viewer = document.getElementById('school-viewer');
+             const btn = document.getElementById('toggle-toire-btn');
+
              viewer.classList.toggle('hide-toire-hotspots');
-    
-        if (viewer.classList.contains('hide-toire-hotspots')) {
-             btn.textContent = '🚻 トイレピン：ON';
-             btn.classList.remove('off');
-        } else {
-             btn.textContent = '🚻 トイレピン：OFF';
-             btn.classList.add('off');
-            }
+
+             if (!viewer.classList.contains('hide-toire-hotspots')) {
+                 btn.textContent = '🚻 トイレピン：ON';
+                 btn.classList.remove('off'); 
+             } else {
+                 btn.textContent = '🚻 トイレピン：OFF';
+                 btn.classList.add('off'); 
+             }
         } 
 
         // 階数選択モーダルを開く
