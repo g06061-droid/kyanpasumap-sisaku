@@ -566,7 +566,7 @@
                     </button>
                     <!-- トイレピン専用のON/OFFボタン -->
                     <button id="toggle-toire-btn" class="toggle-btn off" onclick="toggleToireHotspots()">
-                         🚻 トイレピン：ON
+                         🚻 トイレピン：OFF
                     </button>
                     <div class="building-list">
                 </div>
@@ -760,10 +760,10 @@
              viewer.classList.toggle('hide-toire-hotspots');
 
              if (!viewer.classList.contains('hide-toire-hotspots')) {
-                 btn.textContent = '🚻 トイレピン：OFF';
+                 btn.textContent = '🚻 トイレピン：ON';
                  btn.classList.remove('off'); 
              } else {
-                 btn.textContent = '🚻 トイレピン：ON';
+                 btn.textContent = '🚻 トイレピン：OFF';
                  btn.classList.add('off'); 
              }
         } 
