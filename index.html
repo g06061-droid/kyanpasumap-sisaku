@@ -415,18 +415,18 @@
             text-align: center;
         }
 
-        model-viewer.hide-toilet-hotspots .Hotspot.toilet-pin {
+        model-viewer.hide-toire-hotspots .Hotspot.toire-pin {
             display: none !important;
        }
 
        /* トイレのピン */
-        .Hotspot.toilet-pin {
+        .Hotspot.toire-pin {
             background: #26a69a;
             border-color: #ffffff;
        }
 
-       .Hotspot.toilet-pin:hover, .Hotspot.toilet-pin:active {
-            background: #00796b;
+       .Hotspot.toire-pin:hover, .Hotspot.toire-pin:active {
+            background: #000000;
        }
 
        /* トイレピン切替ボタン */
@@ -470,7 +470,7 @@
             <!-- 3Dモデル表示タグ (ご指定の座標・設定を適用した10棟分のピン配置) -->
             <model-viewer
                 id="school-viewer"
-                class="hide-toilet-hotspots" 
+                class="hide-toire-hotspots" 
                 camera-controls
                 shadow-intensity="0.5"
                 exposure="1"
@@ -507,13 +507,13 @@
                 <button class="Hotspot" slot="hotspot-bldg-10" data-position="80m 16m -7m" data-normal="0m 1m 0m" onclick="openFloorSelector('武道場')">
                      武道場
                 </button>
-                <button class="Hotspot toilet-pin" slot="hotspot-toilet-1" data-position="-70m 16m -25m" data-normal="0m 1m 0m" onclick="alert('トイレ')">
+                <button class="Hotspot toire-pin" slot="hotspot-toire-1" data-position="-70m 16m -25m" data-normal="0m 1m 0m" onclick="alert('トイレ')">
                     トイレ🚻
                 </button>
-                <button class="Hotspot toilet-pin" slot="hotspot-toilet-2" data-position="-35m 16m 25m" data-normal="0m 1m 0m" onclick="alert('トイレ')">
+                <button class="Hotspot toire-pin" slot="hotspot-toire-2" data-position="-35m 16m 25m" data-normal="0m 1m 0m" onclick="alert('トイレ')">
                     トイレ🚻
                 </button>
-                <button class="Hotspot toilet-pin" slot="hotspot-toilet-3" data-position="50m 16m -5m" data-normal="0m 1m 0m" onclick="alert('トイレ')">
+                <button class="Hotspot toire-pin" slot="hotspot-toire-3" data-position="50m 16m -5m" data-normal="0m 1m 0m" onclick="alert('トイレ')">
                     トイレ🚻
                 </button>
             </model-viewer>
@@ -565,7 +565,7 @@
                         <span> 武道場</span>
                     </button>
                     <!-- トイレピン専用のON/OFFボタン -->
-                    <button id="toggle-toilet-btn" class="toggle-btn off" onclick="toggleToiletHotspots()">
+                    <button id="toggle-toire-btn" class="toggle-btn off" onclick="toggleToireHotspots()">
                          🚻 トイレピン：ON
                     </button>
                     <div class="building-list">
@@ -753,13 +753,13 @@
              viewer.src = '学校.glb';
         }
 
-        function toggleToiletHotspots() {
+        function toggleToireHotspots() {
         const viewer = document.getElementById('school-viewer');
-        const btn = document.getElementById('toggle-toilet-btn');
+        const btn = document.getElementById('toggle-toire-btn');
     
-             viewer.classList.toggle('hide-toilet-hotspots');
+             viewer.classList.toggle('hide-toire-hotspots');
     
-        if (viewer.classList.contains('hide-toilet-hotspots')) {
+        if (viewer.classList.contains('hide-toire-hotspots')) {
              btn.textContent = '🚻 トイレピン：ON';
              btn.classList.remove('off');
         } else {
