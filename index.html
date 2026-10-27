@@ -527,45 +527,45 @@
                 <div class="sidebar-desc">校舎を選択すると階ごとの見取り図が開きます。</div>
 
                 <div class="building-list">
-                    <button class="building-botan" onclick="openFloorSelector('本館')">
+                    <button class="building-btn" onclick="openFloorSelector('本館')">
                         <span> 本館</span>
                         <span class="badge">1〜4階</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('1号館')">
+                    <button class="building-btn" onclick="openFloorSelector('1号館')">
                         <span> 1号館</span>
                         <span class="badge">1〜2階</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('2号館')">
+                    <button class="building-btn" onclick="openFloorSelector('2号館')">
                         <span> 2号館</span>
                         <span class="badge">1〜3階</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('3号館')">
+                    <button class="building-btn" onclick="openFloorSelector('3号館')">
                         <span> 3号館</span>
                         <span class="badge">1〜3階</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('4号館')">
+                    <button class="building-btn" onclick="openFloorSelector('4号館')">
                         <span> 4号館</span>
                         <span class="badge">1〜2階</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('高専会館')">
+                    <button class="building-btn" onclick="openFloorSelector('高専会館')">
                         <span> 高専会館</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('図書館')">
+                    <button class="building-btn" onclick="openFloorSelector('図書館')">
                         <span> 図書館</span>
                         <span class="badge">1〜2階</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('体育館')">
+                    <button class="building-btn" onclick="openFloorSelector('体育館')">
                         <span> 体育館</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('学生会館')">
+                    <button class="building-btn" onclick="openFloorSelector('学生会館')">
                         <span> 学生会館</span>
                         <span class="badge">1〜3階</span>
                     </button>
-                    <button class="building-botan" onclick="openFloorSelector('武道場')">
+                    <button class="building-btn" onclick="openFloorSelector('武道場')">
                         <span> 武道場</span>
                     </button>
     
-                    <button id="toggle-toire-botan" class="toggle-btn off" onclick="toggleToireHotspots()">
+                    <button id="toggle-toire-btn" class="toggle-btn off" onclick="toggleToireHotspots()">
                          🚻 トイレピン：OFF
                     </button>
                     <div class="building-list">
@@ -754,7 +754,7 @@
 
         function toggleToireHotspots() {
              const viewer = document.getElementById('school-viewer');
-             const btn = document.getElementById('toggle-toire-botan');
+             const btn = document.getElementById('toggle-toire-btn');
 
              viewer.classList.toggle('hide-toire-hotspots');
 
