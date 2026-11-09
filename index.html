@@ -419,58 +419,34 @@
             display: none !important;
        }
 
-       /* トイレのピン */
+        model-viewer.hide-gomi-hotspots .Hotspot.gomi-pin {
+            display: none !important;
+        }
+
+       /* トイレとゴミ箱のピン */
+        /* トイレのピン（緑色） */
         .Hotspot.toire-pin {
             background: #26a69a;
             border-color: #ffffff;
-       }
-
-       .Hotspot.toire-pin:hover, .Hotspot.toire-pin:active {
+        }
+        .Hotspot.toire-pin:hover, .Hotspot.toire-pin:active {
             background: #00796b;
-       }
+        }
 
-       /* トイレピン切替ボタン -----------------------------------------------------------------------------------------------------------------------------
-        --------------------------------------------------------------------------------------------------------------------------------------------------
-        --------------------------------------------------------------------------------------------------------------------------------------------------*/
-       .toggle-btn {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 2px;
-            background: #26a69a;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-      }
-        .toggle-btn:hover {
-            background: #00796b;
-      }
-        .toggle-btn.off {
-            background: #78909c;
-      }
-
-        .model-viewer.hide-toire-hotspots .Hotspot.gomi-pin {
-            display: none !important;
-       }
-
-       /* トイレのピン */
+        /* ゴミ箱のピン（オレンジ色） */
         .Hotspot.gomi-pin {
-            background: #26a69a;
+            background: #ff9800;
             border-color: #ffffff;
-       }
+        }
+        .Hotspot.gomi-pin:hover, .Hotspot.gomi-pin:active {
+            background: #e65100;
+        }
 
-       .Hotspot.gomi-pin:hover, .Hotspot.gomi-pin:active {
-            background: #00796b;
-       }
-
-       /* ゴミ箱ピン切替ボタン */
-       .toggle-btn {
+        /* ピン切替ボタン共通 */
+        .toggle-btn {
             width: 100%;
             padding: 10px;
-            margin-bottom: 2px;
+            margin-bottom: 6px;
             background: #26a69a;
             color: white;
             border: none;
@@ -479,13 +455,23 @@
             font-weight: bold;
             cursor: pointer;
             transition: background 0.2s;
-      }
+        }
         .toggle-btn:hover {
             background: #00796b;
-      }
+        }
+
+        /* ゴミ箱用ボタン設定 */
+        .toggle-btn.gomi-btn {
+            background: #ff9800;
+        }
+        .toggle-btn.gomi-btn:hover {
+            background: #e65100;
+        }
+
+        /* OFF時統一色 */
         .toggle-btn.off {
-            background: #78909c;
-      }
+            background: #78909c !important;
+        }
     </style>
 </head>
 
@@ -507,7 +493,7 @@
             <!-- 3Dモデル表示タグ (ご指定の座標・設定を適用した10棟分のピン配置) -->
             <model-viewer
                 id="school-viewer"
-                class="hide-toire-hotspots" 
+                class="hide-toire-hotspots hide-gomi-hotspots" 
                 camera-controls
                 shadow-intensity="0.5"
                 exposure="1"
@@ -612,11 +598,11 @@
                     </button>
     
                     <button id="toggle-toire-btn" class="toggle-btn off" onclick="toggleToireHotspots()">
-                         🚻 トイレピン：OFF
-                    </button>
-                    <button id="toggle-gomi-btn" class="toggle-btn off" onclick="toggleGomiHotspots()">
-                         🚮 ゴミ箱ピン：OFF
-                    </button>
+                    🚻 トイレピン：OFF
+                </button>
+                <button id="toggle-gomi-btn" class="toggle-btn gomi-btn off" onclick="toggleGomiHotspots()">
+                    🚮 ゴミ箱ピン：OFF
+                </button>
                     <div class="building-list">
                 </div>
             </div>
